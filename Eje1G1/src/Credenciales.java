@@ -41,6 +41,8 @@ public class Credenciales extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Credenciales");
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         jLabel2.setText("Usuario");
 
         jLabel3.setText("Contraseña");
@@ -109,6 +111,7 @@ public class Credenciales extends javax.swing.JFrame {
         jLImagen.setBackground(new java.awt.Color(100, 100, 100));
         jLImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/icons8-usuario-masculino-en-círculo.gif"))); // NOI18N
         jLImagen.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLImagen.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jBSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/icons8-cross-mark-48.png"))); // NOI18N
         jBSalir.setText("Salir");
@@ -138,7 +141,7 @@ public class Credenciales extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(jLImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(108, 108, 108)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(jBSalir)
                 .addGap(26, 26, 26))
         );
