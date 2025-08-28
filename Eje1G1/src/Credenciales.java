@@ -56,7 +56,7 @@ public class Credenciales extends javax.swing.JFrame {
             }
         });
 
-        jcontraseña.setText("jPasswordField1");
+        jcontraseña.setText("12345678");
 
         jBIngresar.setText("Ingresar");
         jBIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -216,7 +216,12 @@ public class Credenciales extends javax.swing.JFrame {
         if(usuario.equalsIgnoreCase("alumno@ulp.edu.ar"))
         {JOptionPane.showMessageDialog(null, "Bienvenido " + usuario);}
         // Falta mensaje en caso de que no sea el usuario correcto
-        else{}
+        else{
+           JOptionPane.showMessageDialog(this,
+                "Usuario y/o contraseña incorrectos",
+                "Error de acceso",
+                JOptionPane.ERROR_MESSAGE);
+        }
         
     }//GEN-LAST:event_btnIngresar
 
