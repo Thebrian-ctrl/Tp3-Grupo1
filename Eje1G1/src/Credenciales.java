@@ -9,6 +9,7 @@
  * @author Usuario
  */
 // Importacion de JOptionPane
+import java.awt.Color;
 import javax.swing.JOptionPane;
 public class Credenciales extends javax.swing.JFrame {
 
@@ -42,6 +43,8 @@ public class Credenciales extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Credenciales");
+        setLocationByPlatform(true);
+        setUndecorated(true);
         setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -50,15 +53,32 @@ public class Credenciales extends javax.swing.JFrame {
 
         jLabel3.setText("Contraseña");
 
+        jTextUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        jTextUsuario.setForeground(new java.awt.Color(153, 153, 153));
+        jTextUsuario.setText("Ej: juanito@gmail.com");
+        jTextUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTextUsuarioMousePressed(evt);
+            }
+        });
         jTextUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextUsuarioActionPerformed(evt);
             }
         });
 
-        jcontraseña.setText("12345678");
+        jcontraseña.setBackground(new java.awt.Color(255, 255, 255));
+        jcontraseña.setForeground(new java.awt.Color(153, 153, 153));
+        jcontraseña.setText("Ej: 12345");
+        jcontraseña.setToolTipText("");
+        jcontraseña.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jcontraseñaMousePressed(evt);
+            }
+        });
 
         jBIngresar.setText("Ingresar");
+        jBIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIngresar(evt);
@@ -184,7 +204,8 @@ public class Credenciales extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jDesktopPane2)
                 .addContainerGap())
         );
@@ -211,9 +232,10 @@ public class Credenciales extends javax.swing.JFrame {
         
         //Variable para almacenar lo que se ingresa a campo usuario
         String usuario = jTextUsuario.getText();
+        String contraseña = jcontraseña.getText();
         
         //Validacion para ver si es igual a lo que se ingreso
-        if(usuario.equalsIgnoreCase("alumno@ulp.edu.ar"))
+        if(usuario.equalsIgnoreCase("alumno@ulp.edu.ar") && contraseña.equals("12345678"))
         {JOptionPane.showMessageDialog(null, "Bienvenido " + usuario);}
         // Falta mensaje en caso de que no sea el usuario correcto
         else{
@@ -228,6 +250,26 @@ public class Credenciales extends javax.swing.JFrame {
     private void jTextUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextUsuarioActionPerformed
         //Campo texto usuario
     }//GEN-LAST:event_jTextUsuarioActionPerformed
+
+    private void jTextUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextUsuarioMousePressed
+        if(jTextUsuario.getText().equalsIgnoreCase("Ej: juanito@gmail.com")){
+        jTextUsuario.setText("");
+        jTextUsuario.setForeground(Color.black);}
+        if(String.valueOf(jcontraseña.getPassword()).isEmpty()){
+        jcontraseña.setText("Ej: 12345");       
+        jcontraseña.setForeground(Color.gray);}
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextUsuarioMousePressed
+
+    private void jcontraseñaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcontraseñaMousePressed
+        // TODO add your handling code here:
+        if(String.valueOf(jcontraseña.getPassword()).equals("Ej: 12345")){
+        jcontraseña.setText("");
+        jcontraseña.setForeground(Color.black);}
+        if(jTextUsuario.getText().isEmpty()){
+        jTextUsuario.setText("Ej: juanito@gmail.com");
+        jTextUsuario.setForeground(Color.gray);}
+    }//GEN-LAST:event_jcontraseñaMousePressed
 
     /**
      * @param args the command line arguments
