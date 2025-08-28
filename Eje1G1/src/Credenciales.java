@@ -8,6 +8,8 @@
  *
  * @author Usuario
  */
+// Importacion de JOptionPane
+import javax.swing.JOptionPane;
 public class Credenciales extends javax.swing.JFrame {
 
     /**
@@ -48,9 +50,20 @@ public class Credenciales extends javax.swing.JFrame {
 
         jLabel3.setText("Contraseña");
 
+        jTextUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextUsuarioActionPerformed(evt);
+            }
+        });
+
         jcontraseña.setText("jPasswordField1");
 
         jBIngresar.setText("Ingresar");
+        jBIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresar(evt);
+            }
+        });
 
         mostrarContraseña.setText("Mostrar contraseña");
         mostrarContraseña.addActionListener(new java.awt.event.ActionListener() {
@@ -192,6 +205,24 @@ public class Credenciales extends javax.swing.JFrame {
             jcontraseña.setEchoChar('*');
         }
     }//GEN-LAST:event_mostrarContraseñaActionPerformed
+
+    private void btnIngresar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresar
+        // logica evento boton ingresar
+        
+        //Variable para almacenar lo que se ingresa a campo usuario
+        String usuario = jTextUsuario.getText();
+        
+        //Validacion para ver si es igual a lo que se ingreso
+        if(usuario.equalsIgnoreCase("alumno@ulp.edu.ar"))
+        {JOptionPane.showMessageDialog(null, "Bienvenido " + usuario);}
+        // Falta mensaje en caso de que no sea el usuario correcto
+        else{}
+        
+    }//GEN-LAST:event_btnIngresar
+
+    private void jTextUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextUsuarioActionPerformed
+        //Campo texto usuario
+    }//GEN-LAST:event_jTextUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
